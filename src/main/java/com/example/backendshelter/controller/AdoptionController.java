@@ -4,10 +4,8 @@ import com.example.backendshelter.model.Pet;
 import com.example.backendshelter.request.CreatePetFeedRQ;
 import com.example.backendshelter.request.CreatePetRQ;
 import com.example.backendshelter.service.PetService;
-import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -29,8 +27,7 @@ public class AdoptionController {
 
     @GetMapping(value = "/pet/{id}")
     public Pet getPet(@PathVariable(value = "id") Long petId) {
-        return petService.findById(petId).orElseThrow(() -> new ResponseStatusException(
-                HttpStatus.NOT_FOUND, "Pet doesn't exists."));
+        return petService.findById(petId);
     }
 
     @PostMapping(value = "/pet", consumes = "application/json")

@@ -1,5 +1,6 @@
 package com.example.backendshelter.service;
 
+import com.example.backendshelter.exception.PetNotFound;
 import com.example.backendshelter.model.Feed;
 import com.example.backendshelter.model.Pet;
 import com.example.backendshelter.repository.PetRepository;
@@ -42,8 +43,8 @@ public class PetService {
         return newPetList;
     }
 
-    public Optional<Pet> findById(Long id) {
-        return petRepository.findById(id);
+    public Pet findById(Long id) {
+        return petRepository.findById(id).orElseThrow(() -> new PetNotFound("Pet doesn't exists."));
     }
     public Pet addNewPetFeed(CreatePetFeedRQ createPetFeedRQ) {
         Optional<Pet> pet = petRepository.findById(createPetFeedRQ.getPetId());
