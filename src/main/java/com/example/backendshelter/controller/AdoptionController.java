@@ -25,17 +25,17 @@ public class AdoptionController {
         return petService.findAll();
     }
 
-    @GetMapping(value = "/pet/{id}")
+    @GetMapping(value = "/pets/{id}")
     public Pet getPet(@PathVariable(value = "id") Long petId) {
         return petService.findById(petId);
     }
 
-    @PostMapping(value = "/pet", consumes = "application/json")
+    @PostMapping(value = "/pets", consumes = "application/json")
     public List<Pet> addPet(@RequestBody @Valid List<CreatePetRQ> createPetRQ) {
         return petService.save(createPetRQ);
     }
 
-    @PostMapping(value = "/pet-feed", consumes = "application/json")
+    @PostMapping(value = "/pets/feed", consumes = "application/json")
     public Pet addPetFeed(@RequestBody @Valid CreatePetFeedRQ petFeedRQS) {
         return petService.addNewPetFeed(petFeedRQS);
     }
