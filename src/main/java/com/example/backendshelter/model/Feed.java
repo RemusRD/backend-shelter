@@ -29,6 +29,6 @@ public class Feed {
     @OneToOne
     private Pet pet;
 
-    @ManyToMany(mappedBy = "feedList")
+    @OneToMany
     private List<Pet> pets = new ArrayList<>();
 }

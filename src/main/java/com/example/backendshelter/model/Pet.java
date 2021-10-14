@@ -25,9 +25,6 @@ public class Pet {
 
     private String name;
 
-    @ManyToMany
-    @JoinTable(name = "pet_feed",
-            joinColumns = @JoinColumn(name = "pet_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "feed_id", referencedColumnName = "id"))
+    @OneToMany
     private List<Feed> feedList;
 }
