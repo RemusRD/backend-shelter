@@ -1,34 +1,31 @@
 package com.example.backendshelter.model;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
-@Getter
-@Setter
-@ToString
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
-@Table(name ="Feed")
-@Entity
+@Getter
 public class Feed {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    Long id;
+    @EmbeddedId
+    private PetFeedId compositeId;
 
-    private LocalDateTime lunchTime;
+    private LocalDateTime feedTime;
 
-    @OneToOne
-    private Food food;
-
-    @OneToOne
+    @ManyToOne
+    @MapsId("petId")
+    @JoinColumn(name = "pet_id")
     private Pet pet;
 
-    @OneToMany
-    private List<Pet> pets = new ArrayList<>();
+    @ManyToOne
+    @MapsId("foodId")
+    @JoinColumn(name = "food_id")
+    private Food food;
+
 }

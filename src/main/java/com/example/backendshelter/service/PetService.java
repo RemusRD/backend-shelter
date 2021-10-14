@@ -1,7 +1,6 @@
 package com.example.backendshelter.service;
 
 import com.example.backendshelter.exception.PetNotFound;
-import com.example.backendshelter.model.Feed;
 import com.example.backendshelter.model.Pet;
 import com.example.backendshelter.repository.PetRepository;
 import com.example.backendshelter.controller.request.CreatePetFeedRQ;
@@ -19,11 +18,9 @@ public class PetService {
 
     private final PetRepository petRepository;
 
-    private final FeedService feedService;
 
-    public PetService(PetRepository petRepository, FeedService feedService) {
+    public PetService(PetRepository petRepository) {
         this.petRepository = petRepository;
-        this.feedService = feedService;
     }
 
     public List<Pet> findAll() {
@@ -46,10 +43,8 @@ public class PetService {
         return petRepository.findById(id).orElseThrow(() -> new PetNotFound("Pet doesn't exists."));
     }
     public Pet addNewPetFeed(CreatePetFeedRQ createPetFeedRQ) {
-        Optional<Pet> pet = petRepository.findById(createPetFeedRQ.getPetId());
-        Optional<Feed> feed = feedService.findById(createPetFeedRQ.getFeedId());
-        pet.get().getFeedList().add(feed.get());
-        return petRepository.save(pet.get());
+
+        return null;
     }
     /*//Save several Pets at the same time
     public List<Pet> save(List<Pet> petList) throws PetException {

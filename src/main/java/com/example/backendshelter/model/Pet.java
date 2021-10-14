@@ -25,6 +25,6 @@ public class Pet {
 
     private String name;
 
-    @OneToMany
+    @OneToMany(mappedBy = "pet")
     private List<Feed> feedList;
 }
