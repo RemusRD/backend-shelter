@@ -1,8 +1,8 @@
 package com.example.backendshelter.controller;
 
 import com.example.backendshelter.model.Pet;
-import com.example.backendshelter.request.CreatePetFeedRQ;
-import com.example.backendshelter.request.CreatePetRQ;
+import com.example.backendshelter.controller.request.CreatePetFeedRQ;
+import com.example.backendshelter.controller.request.CreatePetRQ;
 import com.example.backendshelter.service.PetService;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
