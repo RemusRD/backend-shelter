@@ -18,5 +18,6 @@ public class FoodController {
         //validate that the description has a maximum size of 255
         //if any of those does not happen, return an status code of 400 and a
         //description of the field that is not correct
+        //Bonus point -> return 201(CREATED) status code if the food was succesfully created.
     }
 }
