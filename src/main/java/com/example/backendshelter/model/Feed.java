@@ -19,7 +19,7 @@ public class Feed {
     private LocalDateTime feedTime;
 
     @ManyToOne
-    @MapsId("petIDDDD")
+    @MapsId("petId")
     @JoinColumn(name = "pet_id")
     private Pet pet;
 
