@@ -19,7 +19,7 @@ public class Shelter {
     @Id
     private Long id;
 
-    @OneToMany(mappedBy = "shelterId")
+    @OneToMany(mappedBy = "shelter")
     private List<Volunteer> volunteers;
 
 }

@@ -70,4 +70,10 @@ public class PetService {
         }
         return this.petRepository.existsById(pet.getId());
     }
+
+    public Pet updateName(Long id, String name) {
+        Pet pet = petRepository.findById(id).orElseThrow(() -> new PetNotFound("Pet doesn't exists."));
+        pet.setName(name);
+        return petRepository.save(pet);
+    }
 }

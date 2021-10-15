@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Getter
 @Setter
@@ -16,5 +17,6 @@ public class Volunteer {
     @Id
     private Long id;
 
-    private Long shelterId;
+    @ManyToOne
+    private Shelter shelter;
 }
