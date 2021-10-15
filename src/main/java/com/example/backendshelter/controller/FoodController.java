@@ -30,8 +30,8 @@ public class FoodController {
     @PostMapping("/food")
     //@ResponseStatus(HttpStatus.CREATED) //Approach number 1 of handling returned status code
     public ResponseEntity createFood(@RequestBody @Valid CreateFoodRequest request) {
-        //503 -> if it is later than 10AM UTC
-        if(LocalDateTime.now(Clock.systemUTC()).isAfter(LocalDateTime.parse("2021-15-10 10:00:00"))) {
+        //503 -> if it is later than 8AM
+        if(LocalDateTime.now(Clock.systemUTC()).isAfter(LocalDateTime.parse("2021-10-15T08:00:00.000000"))) {
             throw new ServiceNotAvailable("Service is not available today after 10AM");
         }
 
