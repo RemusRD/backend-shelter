@@ -3,15 +3,14 @@ package com.example.backendshelter.service;
 import com.example.backendshelter.exception.PetNotFound;
 import com.example.backendshelter.model.Pet;
 import com.example.backendshelter.repository.PetRepository;
-import com.example.backendshelter.controller.request.CreatePetFeedRQ;
-import com.example.backendshelter.controller.request.CreatePetRQ;
+import com.example.backendshelter.controller.request.CreatePetFeedRequest;
+import com.example.backendshelter.controller.request.CreatePetRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class PetService {
@@ -28,10 +27,10 @@ public class PetService {
     }
 
 
-    public List<Pet> save(List<CreatePetRQ> createPetRQList) {
+    public List<Pet> save(List<CreatePetRequest> createPetRQList) {
         List<Pet> newPetList = new ArrayList<>();
         Pet newPet;
-        for (CreatePetRQ createPetRQ : createPetRQList) {
+        for (CreatePetRequest createPetRQ : createPetRQList) {
             newPet = Pet.builder().petType(createPetRQ.getPetType()).name(createPetRQ.getName()).build();
             petRepository.save(newPet);
             newPetList.add(newPet);
@@ -42,7 +41,7 @@ public class PetService {
     public Pet findById(Long id) {
         return petRepository.findById(id).orElseThrow(() -> new PetNotFound("Pet doesn't exists."));
     }
-    public Pet addNewPetFeed(CreatePetFeedRQ createPetFeedRQ) {
+    public Pet addNewPetFeed(CreatePetFeedRequest createPetFeedRQ) {
 
         return null;
     }

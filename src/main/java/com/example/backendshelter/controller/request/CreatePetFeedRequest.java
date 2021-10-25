@@ -7,7 +7,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class CreatePetFeedRQ {
+public class CreatePetFeedRequest {
     private long petId;
     private long feedId;
 }

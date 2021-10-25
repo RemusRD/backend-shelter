@@ -10,7 +10,7 @@ import javax.validation.constraints.NotBlank;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class CreatePetRQ {
+public class CreatePetRequest {
     private PetType petType;
     @NotBlank(message = "Name is a mandatory field.")
     private String name;
